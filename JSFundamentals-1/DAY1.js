@@ -45,7 +45,13 @@ LECTURE 1
 //create an array named recipe and add the steps, in order to make your favorite
 //food. Use different methods to do so.
 =================================================
-
+var recipe = [
+  '1. Boil 500cc of water',
+  '2. Put powders and ingredients in the water'
+  '3. When boiling, put ramen noodle in the water',
+  '4. Stir regularly for 4 minutes'
+  '5. Done!'
+];
 
 //data structures
 =================================================
@@ -78,18 +84,20 @@ var otherWaysToAccess =['dot-notation', 'native methods', 'length property'];
 
 //access the first step of your recipe using bracket notation. 
 =================================================
+recipe[0];
 
 //access the last step of your recipe use a variable. 
 =================================================
+recipe[recipe.length-1];
 
 //access the second to last step of your recipe.
 =================================================
-
+recipe[recipe.length-2];
 
 //how to add values to objects
 =================================================
 var addProperties = ['bracket-notation', 'dot-notation', 'bracket-notation with variable'];
-var otherWaysToAddProperties = [];
+var otherWaysToAddProperties = ['dot-notation', 'native methods', 'lengthproperty'];
 
 
 LECTURE 2
