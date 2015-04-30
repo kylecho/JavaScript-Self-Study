@@ -108,21 +108,22 @@ What is property assignment?
 =================================================
 var accessProperties = ['loop'];
 var accessValues = ['bracket-notation', 'dot-notation', 'bracket-notation with variable'];
-var otherWaysToAccess = [];
+var otherWaysToAccess = ['for-in loop?'];
 
 //Failed property lookups always evaluate to the value undefined
 =================================================
 var myObj = { one: 1, two: 2, three: 3};
-myObj['two'] => ??
-myObj[one] => ?? //what does no quotes mean?
+myObj['two'] => 2
+myObj[one] => ReferenceError: one is not defined //what does no quotes mean?
+              It tries to look for a variable.
 
 //You can't use dot notation with variables or special characters
 =================================================
 var myOtherObj = { loves : 'candy', likes: 'fries' }
 var likes = 'loves';
 
-myOtherObj['likes']; => ??
-myOtherObj.likes => ??
+myOtherObj['likes']; => 'fries'
+myOtherObj.likes => 'fries'
 
 What about weird symbols in property names?
 
@@ -130,9 +131,16 @@ What about weird symbols in property names?
 //create an object called myCatInfo
 //add some properties and values using bracket notation
 =================================================
+var myCatInfo = {};
+myCatInfo['name'] = 'Nabi';
+myCatInfo['age'] = 2;
+myCatInfo['cry'] = function() { alert('Nya~!!'); };
 
 //now recreate myCatInfo using dot notation (do not copy/paste!)
 =================================================
+myCatInfo.name = 'Ruby';
+myCatInfo.age = '1';
+myCatInfo.cry = function() { alert('myow'); };
 
 //some weird things
 =================================================
@@ -155,17 +163,20 @@ for(var k in obj){
 
 //What is an object/array literal?
 =================================================
+An object/array literal means {} or []. That the objects are initiated
+literally.
+
 var obj1 = {};
-obj['x']       = 9;
-obj['~/ [."4'] = 'cat';
+obj1['x']       = 9;
+obj1['~/ [."4'] = 'cat';
 
 var obj2 = {
     'x'        : 9,
     '~/ [."4'  : 'cat'
 };
 
-obj1 === obj2; => ??
-
+obj1 === obj2; => false because they are not precisely the same.
+                  They just have same contents.
 
 
 LECTURE 3
