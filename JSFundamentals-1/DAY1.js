@@ -189,6 +189,7 @@ var arr = ['a','b','c','d'];
 
 for (var i = 0; i < arr.length; i++){
   console.log(arr[i]); //why don't we need quotes??
+                       because we are accessing the array element via bracket notation referring a variable i.
 }
 
 Objects, use for in loop
@@ -197,6 +198,7 @@ var obj = {hello: 'goodbye', up : 'down', blue : 'red', 'weird-symbol': 'need qu
 
 for(var key in obj) {
   console.log(obj[key]); //why don't we need quotes??
+                         Again, we are using key as a variable to access each values, via object bracket notation.
 }
 
 //Since arrays are objects...
@@ -216,6 +218,7 @@ for(var k in arr){
   console.log(k); // logs 'x', '0' 
 }
 console.log(arr.length);    // logs ??
+                            would log 1 out.
 
 You might expect length to hold 2, since there's also a property at 
 the key 'x'. But remember: non-integer keys do not count toward the length value.
@@ -227,13 +230,17 @@ behavior are said to be unenumerable.
 
 //Let's search arr for 'c'
 =================================================
+console.log(arr['c']);
 
 //Let's search obj for the value 'red'
 =================================================
+console.log(obj['red']);
 
 //Let's search obj for the property 'hello'
 =================================================
-
+for (var key in obj) {
+  console.log(key);
+}
 
 //"Loop through the array FAMOUS and console.log ONLY when it gets
 //to ashton kutcher, and mila kunis";
@@ -242,20 +249,30 @@ var famous = ['alex smith', 'amy whinehouse',
 'cameron diaz', 'brad pitt', 'ashton kutcher', 'mark whalberg',
 'morgan freeman', 'mila kunis'];
 =================================================
-
+for (var i = 0; i < famous.length; i++) {
+  if (famous[i] === 'ashton kutcher' || famous[i] === 'mila kunis')
+    console.log(famous[i]);
+}
 
 //"Loop through the object POLITICAL and console.log first the
 //VALUE then the KEY";
 
-var political = {secretary of state: 'hillary clinton',
- potus: 'barack obama', flotus: 'michelle obama', vice prez: 'joe biden'
- governerOfCalifornia: 'jerry brown'};
+var political = {
+  'secretary of state': 'hillary clinton',
+   potus: 'barack obama',
+   flotus: 'michelle obama',
+   'vice prez': 'joe biden',
+   governerOfCalifornia: 'jerry brown'};
 =================================================
-
+for (var key in political) {
+  console.log('key : ' + key + ', value : ' + political[key]);
+}
 
 //"Loop through the political object and add the values to the famous array"
 =================================================
-
+for (var key in political) {
+  famous.push(political[key]);
+}
 
 //"Take the array digits and place each value into an empty object where
 //The object keys the digits and the values 
@@ -266,16 +283,23 @@ var political = {secretary of state: 'hillary clinton',
 var digits = [0, 1, 2, 3, 4, 5]
 var newDigits = {} ======> {0: 0, 1: 2, 2: 4, 3: 6, 4: 8, 5: 10};
 =================================================
+for (var i = 0; i < digits.length; i++) {
+  newDigits[i] = i * 2;
+}
 
 //'Loop through the array scramble and through each iteration take out 
 //the FIRST and LAST value, and store it into the lovepoem array. then
 //turn the values in the lovepoem array into a string.'
 
-var scramble: ['roses', 'red', 'are', 'bacon', 'crispy', 'i', 'you'
-,'love', 'and', 'is', 'blue', 'violets', 'are']
+var scramble = ['roses', 'red', 'are', 'bacon', 'crispy', 'i', 'you'
+,'love', 'and', 'is', 'blue', 'violets', 'are'];
 var lovepoem = [];
 =================================================
-
+for (var i = 0; i < scramble.length; i++) {
+  lovepoem.push(scramble.shift());
+  lovepoem.push(scramble.pop());
+}
+console.log(lovepoem.join(' '));
 
 
 
