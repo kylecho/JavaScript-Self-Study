@@ -320,28 +320,31 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 //Now add another color that is not already in colors using a 
 //native method (unshift/push)
 =================================================
-
+var colors = ['red', 'green', 'blue'];
+colors.push('orange');
+colors.unshift('violet');
 
 //how will the below evaluate
 //&& means AND, more logical operators below
 =================================================
-Array.isArray(colors) && undefined ==> ???
-Array.isArray(colors) && "undefined" ==> ???
-Array.isArray(colors) && colors.pop(); => ??
-
+Array.isArray(colors) && undefined ==> undefined
+Array.isArray(colors) && "undefined" ==> 'undefined'
+Array.isArray(colors) && colors.pop(); => 'blue'
 
 
 //"Without using a loop, take the 2nd and 3rd array values out of 
 //FRIENDS and push it to the array ENEMIES"
-
 var friends = ['albrey', 'will', 'bianca', 'abe'];
 var enemies = [];
 =================================================
+enemies.push(friends.splice(2, 1)[0]);
+enemies.push(friends.splice(2, 1)[0]);
 
 
 //"Join the array friends AND the array enemies into an string with 
 //the variable name 'frenemies'" 
 =================================================
+var frenemies = friends.concat(enemies).join(', ');
 
 
 //native methods + constructor methods objects
@@ -370,22 +373,23 @@ var destinysChild = ['Kelly Rowland', 'Michelle Williams', 'Beyonce Knowles'];
 //Return the last item in a multi-item array and save it in a
 //new variable called star
 =================================================
-
+var star = [];
+star[0] = destinysChild[destinysChild.length - 1];
 
 //Now add Beyonces sister Solange to star using native methods
 =================================================
-
+star.push('Solange Knowles');
 
 //Now remove Beyonce using native methods so that Beyonce
 //is returned and  Solange is the only value in star
 =================================================
-
+star.shift('Beyonce Knowles');
 
 //Let's check if star and destinysChild are arrays using
 //the native array method Array.isArray(obj);
 =================================================
-
-
+Array.isArray(destinysChild);
+Array.isArray(star);
 
 
 //control flow
@@ -399,7 +403,9 @@ boolean value
 //Let's loop through the destinysChild array to see who's still around
 //Also, where's conditional statement and boolean in the function
 =================================================
-
+for (var i = 0; i < destinysChild.length; i++) {
+  console.log(destinysChild[i]);
+}
 
 //Cool, now what if we do the same with the following object
 =================================================
@@ -417,7 +423,9 @@ var singers = {
 //So that's fine but is far from ideal since we'll have to update
 // singers['length'] manually, let's use a for in loop instead
 =================================================
-
+for (var key in singers) {
+  console.log(key);
+}
 
 /*The Spy Society has decided that Austin has messed up one
 too many operations. They will let you join the spyRing array if
@@ -425,7 +433,7 @@ and only if you can write a for loop that searches the spyRing
 array for Austin and puts you in his place */
 ===================================================
 var spyRing = ['James Bond', 'Inspector Clouseau', 'Austin Powers'];
-
+spyRing.indexOf('Austin Powers');
 
 
 //logical operators
@@ -443,12 +451,12 @@ var p = null;
 
 //How do the following evaluate
 =================================================
- o && o.x => ???
- p && p.x => ???
- o && p => ???
- o || p => ???
- !(o) => ???
- !(p) => ???
+ o && o.x => 1
+ p && p.x => null
+ o && p => null
+ o || p => Object {x: 1}
+ !(o) => false
+ !(p) => true
 
 
 //Search the array dogs for the name property, if it exists,
@@ -467,12 +475,29 @@ var dogs = [
   toy: 'bone'}
 ];
 
+for (var i = 0; i < dogs.length; i++) {
+  if (dogs[i].hasOwnProperty('name')) {
+    console.log(dogs[i]['name']);
+  } else {
+    console.log('no dogs were named')
+  }
+}
 
 //Now let's say we want to create a function that 
 //logs all of the values for Henry
 ====================================================
-
+function logValues(array) {
+  for (var key in array[0]) {
+    console.log(array[0][key]);
+  }
+}
 
 //That's cool and all but what good are the Values without
 // their keys? Write a function that will log the key/value pairs
 =================================================
+function logKeyValuePairs(array) {
+  for (var key in array[0]) {
+    console.log('Key : ' + key + ', Value : ' + array[0][key]);
+  }
+}
+
