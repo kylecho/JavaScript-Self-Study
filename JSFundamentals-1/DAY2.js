@@ -48,9 +48,23 @@ var data = { results: [
 
   Use the .length property to console.log the length of the results
   array.
+  ============================================================================
+  console.log(data.results.length);
+  // -> 7
 
   Imagine you want are making a search results page,
   (console.log) all of the animal names in order.
+  ============================================================================
+  for (var i = 0; i < data.results.length; i++) {
+    console.log(data.results[i].animal);
+  }
+  // fox
+  // frog
+  // dog
+  // human
+  // fish
+  // whale
+  // duck
 
   Next, Capitalize the first letter of each name and put a label
   Your end result should look like this:
@@ -60,6 +74,13 @@ var data = { results: [
   Name: Human
   Name: Fish
   etc.
+  ============================================================================
+  for (var i = 0; i < data.results.length; i++) {
+    data.results[i].animal = data.results[i].animal.split('');
+    data.results[i].animal[0] = data.results[i].animal[0].toUpperCase();
+    data.results[i].animal = data.results[i].animal.join('');
+    console.log('Name: ' + data.results[i].animal);
+  }
 
   Next, console.log the number of legs next to their name.
   Your end result should look like this:
@@ -68,6 +89,13 @@ var data = { results: [
   Name: Frog, Legs: 4
   Name: Human, Legs: 2
   Name: Fish, Legs: 0
+  ============================================================================
+  for (var i = 0; i < data.results.length; i++) {
+    data.results[i].animal = data.results[i].animal.split('');
+    data.results[i].animal[0] = data.results[i].animal[0].toUpperCase();
+    data.results[i].animal = data.results[i].animal.join('');
+    console.log('Name: ' + data.results[i].animal + ', Legs: ' + data.results[i].numberOfLegs);
+  }
 
   Now, redo the steps in the previous one and 
   take this data and add it to an array with nested objects. 
@@ -79,10 +107,34 @@ var data = { results: [
   {Name: 'Human', Legs: 2},
   {Name: 'Fish', Legs: 0}
   ];
+  ============================================================================
+  for (var i = 0; i < data.results.length; i++) {
+    data.results[i].animal = data.results[i].animal.split('');
+    data.results[i].animal[0] = data.results[i].animal[0].toUpperCase();
+    data.results[i].animal = data.results[i].animal.join('');
+    data.results.push({Name: data.results[i].animal, Legs: data.results[i].numberOfLegs});
+  }
 
   For another search result, console.log the animals whose matches are 'fish'
+  ============================================================================
+  for (var i = 0; i < data.results.length; i++) {
+    for (var j = 0; j < data.results[i].matches.length; j++) {
+      if (data.results[i].matches[j] === 'fish') {
+        console.log(data.results[i].animal);
+      }
+    }
+  }
 
   Next, add it to an array called 'FishMatches'. 
   Make each match an object with two properties 'name' and 'index'
   Your end result should look like this:
   var fishMatches = [{name: 'dog', index: 2}, {name: 'whale', index:5}];
+  ============================================================================
+  var fishMatches = [];
+  for (var i = 0; i < data.results.length; i++) {
+    for (var j = 0; j < data.results[i].matches.length; j++) {
+      if (data.results[i].matches[j] === 'fish') {
+        fishMatches.push({name: data.results[i].animal, index: j});
+      }
+    }
+  }
