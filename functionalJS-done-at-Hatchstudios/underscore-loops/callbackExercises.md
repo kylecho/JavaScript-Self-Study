@@ -1,11 +1,10 @@
-// Incomplete: 1,
+// All Correct!
 ##Callback exercises
 
 1. Use _.each to loop through an array and console.log() all the values. Now use it to console.log() the indices. How would this be different
 if you were looping through an object?
 
-	_.each(array, console.log);
-
+	_.each(array, function(elem) { return console.log(elem); });
 
 
 2. Write a function called checkValue that searches an array for a value. It takes an array and a value and returns true if the value exists

@@ -137,8 +137,9 @@ to explain to a partner how it worked before, and how it works now with a closur
 	```javascript
 	var checkAttendanceFunc = function(nameArr){
 		var resultArr = [];
+		var logName = function(){ console.log('Is', nameArr[i], 'present?', i)};
 		for(var i = 0; i < nameArr.length; i++){
-			resultArr.push(function(){ console.log('Is', nameArr[i], 'present?', i)})
+			resultArr.push(logName());
 		};
 		return resultArr;
 	};
@@ -150,7 +151,19 @@ to explain to a partner how it worked before, and how it works now with a closur
  without using a closure? Is it even possible? How could you do this with a closure? \*Note: This original input function should *not* have
  any parameters.
 
+ var once = function(callback) {
+   var called = false;
+   return function() {
+     if (!called) {
+       called = true;
+       return callback();
+     } else {
+     	 return false;
+     }
+   };
+ };
 
+ var alertOnce = once(function() { alert('Just for one time!'); });
 
 
 

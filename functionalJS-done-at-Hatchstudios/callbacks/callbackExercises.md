@@ -42,7 +42,97 @@ function once(func) {
 			return false;
 		} else {
 			done = true;
-			func();
+			return func;
 		}
 	}
 }
+
+function once(func) {
+	var call = false;
+	return function() {
+		if (call === false)
+			call = true;
+			return func;
+	}
+}
+
+function once (fn) {
+  var done = false;
+  
+  return function () {
+    return done ? void 0 : ((done = true), fn.apply(this, arguments))
+  }
+}
+
+// John's answer to once()
+var once = function(func) {
+  var called = false;
+  return function() {
+    if (!called) {
+      called = true;
+      return func();
+    }
+  };
+};
+
+// https://github.com/johnheroy/functionalJS
+==================================================================================================================
+// Will work without assining x() to another variable.
+-----------------------------------
+var once = (function (func) {
+    var done = false;
+    return function () {
+        if (done) {
+            return false;
+        } else {
+            done = true;
+            return func;
+        }
+    };
+})();
+-----------------------------------
+once(console.log(10));
+once(add);
+// Will work without assigning x() to another variable.
+-----------------------------------
+var once = (function() {
+	var done = false;
+    return {
+    		once: function(func) {
+        	if (done) {
+            	return false;
+            } else {
+            	done = true;
+                return func;
+            }
+        },
+        reset: function() {
+        	done = false;
+        }
+    }
+})();
+-----------------------------------
+once.once(add);
+once.once(console.log(10));
+-----------------------------------
+// This one will work with assigning once() to a variable and invoke it with that variable.
+-----------------------------------
+var once = function(func) {
+  var called = false;
+  return function() {
+    if (!called) {
+      called = true;
+      return func();
+    }
+  };
+};
+
+var alertYolo = function() {
+  alert('yolo');
+};
+var alertYoloOnce = once(alertYolo);
+alertYoloOnce();
+alertYoloOnce();
+
+
+
