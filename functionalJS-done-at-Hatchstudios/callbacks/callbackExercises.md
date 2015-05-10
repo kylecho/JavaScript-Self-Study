@@ -1,3 +1,4 @@
+// All correct!
 #Callback Exercises
 
 1. Write a function, `funcCaller`, that takes a `func` (a function) and an `arg` (any data type). The function returns the `func` called
@@ -52,7 +53,7 @@ function once(func) {
 	return function() {
 		if (call === false)
 			call = true;
-			return func;
+			return func();
 	}
 }
 

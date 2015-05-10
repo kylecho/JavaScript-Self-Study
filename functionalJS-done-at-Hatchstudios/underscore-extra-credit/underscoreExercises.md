@@ -1,4 +1,4 @@
-// Needs to do No.3
+// All correct!
 ##Underscore exercises
 
 1. Use _.reduce to multiply all the values in an array.

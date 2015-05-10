@@ -1,3 +1,4 @@
+// logical operator part is especially useful
 www.github.com/bgando/JSFundamentals
 
 var results = data.results;
@@ -121,7 +122,7 @@ Anything other than the falsy values.
 // functions + logic operators
 =================================================
 
-function documentTitle(theTitle)
+function documentTitle(theTitle) {
   theTitle  = theTitle || "Untitled Document";
   return theTitle;
 }

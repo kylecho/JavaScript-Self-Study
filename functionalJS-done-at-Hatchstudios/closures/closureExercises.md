@@ -1,3 +1,4 @@
+// All correct!
 ##Closure exercises
 
 1. Write a function, `nonsense` that takes an input `string`. This function contains another function, `blab` which alerts `string` 

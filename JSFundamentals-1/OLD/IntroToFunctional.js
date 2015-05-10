@@ -11,7 +11,20 @@ function splat(fun) {
 var addArrayElements = splat(function(x, y) { return x + y });
 
 addArrayElements([1, 2]);
+// => 3
+addArrayElements([1, 2, 3]);
+// => 3
 
+// take arguments more than x and y... and it works!!!
+var addArrayElements = splat(function(args){
+  var argsArr = Array.prototype.slice.call(arguments);
+  return argsArr.reduce(function(a, b) { return a + b; });
+});
+
+addArrayElements([1, 2, 3]);
+// => 6
+
+==========================================================================================
 
 .sort();
 
@@ -20,22 +33,37 @@ write a function
 select('>2', [1,2,3,4])
 that returns [3,4]
 
+var select = function(conditional, array) {
+  return array.filter(function(element) {
+    return eval(element + conditional);
+  });
+};
+
+// it worked!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+
 map(1, '+' , [2, 3])
 
 
-
+==========================================================================================
 var first = function(x) {
-var z = "it's lonely on top"
-console.log("in the first function y = ", y)
-var second = function() {
+  var z = "it's lonely on top"
+  console.log("in the first function y = ", y); // undefined
+  
+  var second = function() {
       var y = "I'm down here!!"
-    var third = function() {
-      console.log("remember variable hoisting? y = ", y);
-  var y = "I'm in this pretty deep.."
-  console.log("What do you think y is down here? It is ", y);
-}
-}
-}
+      
+      var third = function() {
+        console.log("remember variable hoisting? y = ", y); // undefined;
+        var y = "I'm in this pretty deep..";
+        console.log("What do you think y is down here? It is ", y); // "I'm in this pretty deep.."
+      };
+
+  };
+
+};
 
 function test(o) {
 var i = 0;                              // i is defined throughout function

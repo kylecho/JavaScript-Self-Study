@@ -1,3 +1,3 @@
-#JavaScript Self Study
+#JavaScript Study
 
-In this repository, I will be attempting to solve the exercise questions that I have collected from different sources.
+Here you can find my solution to various exercises for advanced javascript concepts; callbacks, closures, higher-order functions.
