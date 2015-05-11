@@ -1,4 +1,4 @@
-// logical operator part is especially useful
+// All correct! logical operator part is especially useful
 www.github.com/bgando/JSFundamentals
 
 var results = data.results;

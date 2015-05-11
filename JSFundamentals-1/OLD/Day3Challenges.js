@@ -1,3 +1,5 @@
+// Almost correct.. Needs review: 2
+
 //How will the following evaluate
 ===============================================================
 false && true || true // it's same as (false && true) || true, thus returns true.
@@ -93,7 +95,7 @@ var arrayCounter = function(array) {
 
 
 //change func so that it works with the for loop
-//with semi colons??
+//with semi colons??																					// Needs review
 ==============================================================
 var func = function(){};
 for(var i = 0; i < func.length; i++){
@@ -102,7 +104,7 @@ for(var i = 0; i < func.length; i++){
 
 
 //change obj so that it works with the for loop
-//with semi colons
+//with semi colons																						// Needs review
 ==============================================================
 var obj = {};
 for(var i = 0; i < func.length; i++){

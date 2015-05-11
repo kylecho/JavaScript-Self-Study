@@ -1,3 +1,4 @@
+// All correct!
 function splat(fun) {
 
  return function(array) {
