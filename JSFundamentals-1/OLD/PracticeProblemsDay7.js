@@ -1,4 +1,5 @@
-Recursion: 
+// Almost correct.. needs review: 1
+Recursion:
 
 Recursion is like a while loop for functions.
 
@@ -43,6 +44,15 @@ to your terminating case.
 
 1. Write a function 'addition' that takes an argument and uses
 a while loop to adds up all the integers between 0 and the argument.
+function addition(num) {
+	var result = 0;
+	while (num >= 0) {
+		result += num;
+		num--;
+	}
+	return result;
+}
+
 
 // 1. terminating case is num equals zero;
 // 2. action: adding each positive integer to a total
@@ -86,14 +96,68 @@ function recursiveAdditionStack(num) {
 base, and expo, uses a while loop to return the exponenet value
 of the base.
 
-4. Write a function 'RecursiveExponent' that takes two arguments
+function exponent(base, expo) {
+	var result = 1;
+	while (expo > 0) {
+		result *= base;
+		expo--;
+	}
+	return result;
+}
+
+
+4. Write a function 'recursiveExponent' that takes two arguments
 base, and expo, recursively returns exponent value
 of the base.
 
+function recursiveExponent(base, expo) {
+	if (expo <= 1) {
+		return base;
+	} else {
+		return base * recursiveExponent(base, expo - 1);
+	}
+}
+
+// Needs review: incorrect
 Write a function 'recursiveMultiplier' that takes
 two arguments, 'arr and num', and multiplies
 each arr value into by num and returns 
 an array of the values.
+
+function recursiveMultiplier(arr, num) {
+	var result = [];
+	function arrMaker(arr, num) {
+		if (arr.length <= 0) {
+			return result;
+		} else {
+			result.push(arr[arr.length - 1] * num);
+			return recursiveMultiplier(arr.pop(), num);
+		}
+	}
+	return arrMaker(arr, num);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* hint use closure */
 

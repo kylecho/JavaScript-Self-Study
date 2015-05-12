@@ -1,6 +1,6 @@
 var each = function(arr, func){ 
   for(var i = 0; i < arr.length; i++){
-    func(arr[i], i, arr);
+    func(arr[i], i, arr); // note here for the additional parameters i, and arr.
   }
 }
 
@@ -60,7 +60,7 @@ var makeStopwatch = function(){
   return stopwatch;
 };
 
-var x = makesStopwatch();
+var x = makeStopwatch();
 
 
 
