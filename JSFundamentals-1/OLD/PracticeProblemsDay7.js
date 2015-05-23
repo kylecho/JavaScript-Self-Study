@@ -138,27 +138,6 @@ function recursiveMultiplier(arr, num) {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* hint use closure */
 
 Write a function 'recursiveReverse' that takes an array

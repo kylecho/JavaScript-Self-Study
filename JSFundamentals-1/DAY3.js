@@ -145,9 +145,10 @@ fun();
 
 var fun = function() { console.log('2'); };
 var res = fun(); // what is the value of res?
+								 // undefined because fun does not return anything but logs
 
 var fun = function() { return 2; };
-var two = fun();
+var two = fun(); // it will have 2 as a value
 
 
 
@@ -186,8 +187,11 @@ window.x = ‘also global!’
 //Exercise
 
 //Declare a global variable attached to the global window object and assign it a value.
+window.myValue = 'myString';
 
 //Declare a global variable without using var and practice feeling really fearful about this. Quickly add a var before it is too late!
+dangerous = "don't do this";
+var safe = "it is safer!";
 
 //Function Scope	- Local
 
@@ -204,10 +208,10 @@ alert(l); //out of scope! l is not defined
 
 var scope = "global";
 function f() {
-    		console.log(scope);  			// Prints "undefined", not "global"
+    		console.log(scope);  			// Prints "undefined", not "global" (k.c.: because of variable hoisting)
     		var scope = "local"; 			// Variable initialized here, but defined everywhere
     		console.log(scope);  			// Prints "local"
-	}
+}
 
 function f() {
 	var scope;          					// Local variable is declared at the top of the function
@@ -223,9 +227,9 @@ function f() {
 //Function Scope - exercise 2
 var first = function(x) {
 var z = “it’s lonely on top”;
-console.log(“in the first function y = not declared.”);
+console.log("in the first function y = not declared.");
 var second = function() {
-  		var y = “I’m down here!!”;
+  	var y = “I’m down here!!”;
 		console.log(‘y is a local variable to this child function. it equals,’ y);
 		console.log(“z is an inherited variable from the parent scope. The child function can access it. They value is: ‘, z);
 	};
