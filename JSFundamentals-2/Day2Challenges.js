@@ -56,20 +56,21 @@ var destinysChild = ['Kelly Rowland', 'Michelle Williams', 'Beyonce Knowles'];
 //Return the last item in a multi-item array and save it in a
 //new variable called star
 =================================================
-
+var star = destinysChild[destinysChild.length - 1];
 
 //Now add Beyonces sister Solange to star using native methods
 =================================================
-
+star.push('Slonage Knowles');
 
 //Now remove Beyonce using native methods so that Beyonce
 //is returned and  Solange is the only value in star
 =================================================
-
+star.shift();
 
 //Let's check if star and destinysChild are arrays using
 //the native array method Array.isArray(obj);
 =================================================
+Array.isArray(destinysChild);
 
 //control flow
 =================================================
